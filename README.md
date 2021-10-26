@@ -39,32 +39,11 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+## Explicación
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+El proyecto utiliza la API de IMDB para visualizar películas y series (https://imdb-api.com/). El usuario puede buscar y ver el detalle de una serie o película utilizando
+las opciones que ofrece el sistema. Al iniciar sesión (cuenta falsa), el usuario podrá guardar en "favoritos" las películas o series que le interesen, las cuales se almacenarán en el almacén local del navegador.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Se utilizaron custom hooks para cargar los datos de la API, los cuales se encuentran en la carpeta "custom-hooks"
+Se utilizó Redux para manejar los estados del Login y Favoritos. Investigando un poco, encontré redux-toolkit, lo cual facilitó mi entendimiento de redux y el trabajo. Dejo el link para su revisión https://redux-toolkit.js.org/
+Dependiendo del tipo de componente, podrá encontrar componentes stateful y stateless, pero en su mayoría serán stateful.

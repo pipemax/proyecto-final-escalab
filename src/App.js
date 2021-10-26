@@ -15,6 +15,13 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Column from 'react-bootstrap/Col';
 
+/* State de Redux*/
+import { useSelector } from 'react-redux'; 
+import { logged } from './features/loginSlice';
+
+import { ErrorBoundary } from 'react-error-boundary';
+import Error from './components/Error';
+
 const App = () => {
 
   /*
@@ -22,39 +29,46 @@ const App = () => {
     en caso de ser necesario, subrutas a los otros componentes
   */
   const main = "/";
+  const logStatus = useSelector(logged);
+
   const routes = [
     {
         path: "/movies",
         component: Movies,
-        text: "Movies"
+        text: "Movies",
+        visible: true
     },
     {
         path: "/series",
         component: Series,
-        text: "Series"
-    },
+        text: "Series",
+        visible: true
+    },      
     {
         path: "/favorites",
         component: Favorites,
-        text: "Favorites"
-    }
+        text: "Favorites",
+        visible: logStatus
+    }       
   ];
 
   return (
     <BrowserRouter>
       <Row>
         <Column xs={12} sm={12} md={12}>
-          <Header mainPage= { main } routes= {routes}/>  
-          <Container style={{marginTop: "20px"}}>
-            <Switch>
-              <Route key={main} exact path= { main } component= {TopMovies} />
-              {
-                routes.map((route) => <Route key={route.path} path= {route.path} component= {route.component} />)
-              }
-              <Route key="not-found" component= {NotFound} />
-            </Switch>
-          </Container>
-          <Footer />
+            <ErrorBoundary FallbackComponent={Error}>
+              <Header mainPage= { main } routes= {routes}/>  
+              <Container style={{marginTop: "20px"}}>
+                <Switch>
+                  <Route key={main} exact path= { main } component= {TopMovies} />
+                  {
+                    routes.filter(element => element.visible).map((route) => <Route key={route.path} path= {route.path} component= {route.component} />)
+                  }
+                  <Route key="not-found" component= {NotFound} />
+                </Switch>
+              </Container>
+              <Footer />
+            </ErrorBoundary>
         </Column>
       </Row>
     </BrowserRouter>
