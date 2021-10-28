@@ -1,4 +1,4 @@
-import { React, Fragment } from 'react';
+import React, { Fragment } from 'react';
 import { Form } from 'react-bootstrap';
 import propTypes from "prop-types";
 
@@ -27,4 +27,4 @@ FormInput.propTypes = {
     handleChange: propTypes.object
 };
 
-export default FormInput
+export default FormInput;

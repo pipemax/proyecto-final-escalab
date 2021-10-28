@@ -1,4 +1,4 @@
-import { React, Fragment } from 'react';
+import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../assets/img/logo.png';
 import '../assets/css/bootstrap.min.css';

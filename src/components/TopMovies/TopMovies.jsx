@@ -1,11 +1,12 @@
 import React, { useEffect }  from 'react';
 import useGetPopularMovies from '../../custom-hooks/useGetPopularMovies';
 import ErrorComponent from '../Error';
-import { Spinner, Row, Alert } from 'react-bootstrap';
+import { Row, Alert } from 'react-bootstrap';
 import MoviesList from '../MoviesList';
 import Search from '../Search';
 import { ErrorBoundary } from 'react-error-boundary';
 import Error from '../Error';
+import Loader from '../Loader';
 
 const TopMovies = () => {
     const { popularMovies, loading, error, getPopularMovies } = useGetPopularMovies();
@@ -19,9 +20,7 @@ const TopMovies = () => {
             <Search>
                 <div className='d-flex justify-content-center'>
                     { loading ? (
-                        <Spinner animation="border" role="status" style={{ width: '5rem', height: '5rem'}}>
-                            <span className="visually-hidden">Loading...</span>
-                        </Spinner>
+                        <Loader/>
                     ) : error ? (
                         <ErrorComponent/>
                     ) : (

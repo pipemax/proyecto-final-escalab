@@ -2,7 +2,6 @@ import React, { useState, Fragment } from 'react';
 import { Row, Col, FormControl, InputGroup, Button, Form } from 'react-bootstrap';
 import SearchMovies from './Movies/SearchMovies';
 import SearchSeries from './Series/SearchSeries';
-import Swal from 'sweetalert2';
 
 const Search = (props) => {
 

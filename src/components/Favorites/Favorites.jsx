@@ -14,7 +14,7 @@ const Favorites = () => {
         <ErrorBoundary FallbackComponent={Error}>
             <div className='d-flex justify-content-center'>
                 {  
-                    counterList == 0 ? (
+                    counterList === 0 ? (
                         <Alert variant='info'>
                             Ups!, it seems you have not added any favorites yet!
                         </Alert>

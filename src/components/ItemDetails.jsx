@@ -1,16 +1,17 @@
-import React, { useState, useEffect } from 'react';
-import { Row, Col, Alert, Spinner, Card, Tabs, Tab, ListGroup } from 'react-bootstrap';
+import React, { useEffect } from 'react';
+import { Row, Col, Alert, Card, Tabs, Tab, ListGroup } from 'react-bootstrap';
 import useGetTitle from '../custom-hooks/useGetTitle';
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import Slider from "react-slick";
 import { ErrorBoundary } from 'react-error-boundary';
 import Error from '../components/Error';
 import propTypes from "prop-types";
+import Loader from './Loader';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const ItemDetails = ({ idTitle }) => {
-    const { title, loading, error, getTitle } = useGetTitle();
+    const { title, loading, getTitle } = useGetTitle();
 
     const settings = {
         dots: false,
@@ -59,9 +60,7 @@ const ItemDetails = ({ idTitle }) => {
                         loading 
                         ? 
                         (
-                            <Spinner animation="border" role="status" style={{ width: '5rem', height: '5rem'}}>
-                                <span className="visually-hidden">Loading...</span>
-                            </Spinner>
+                            <Loader/>
                         ) : (
                             
                                 title.trailer.linkEmbed !== null ?
@@ -88,9 +87,7 @@ const ItemDetails = ({ idTitle }) => {
                         loading
                         ?
                         (
-                            <Spinner animation="border" role="status" style={{ width: '5rem', height: '5rem'}}>
-                                <span className="visually-hidden">Loading...</span>
-                            </Spinner>
+                            <Loader/>
                         ) : (
                             <div style={{paddingLeft: '30px', paddingRight: '30px', backgroundColor: 'grey'}}>
                                 <Slider {...settings}>
@@ -132,9 +129,7 @@ const ItemDetails = ({ idTitle }) => {
                         loading 
                         ? 
                         (
-                            <Spinner animation="border" role="status" style={{ width: '5rem', height: '5rem'}}>
-                                <span className="visually-hidden">Loading...</span>
-                            </Spinner>
+                            <Loader/>
                         ) : (
                             <Tabs defaultActiveKey="plot-en" className="mb-3">
                                 <Tab eventKey="plot-en" title="Trama (EN)">
@@ -152,15 +147,13 @@ const ItemDetails = ({ idTitle }) => {
                         loading 
                         ? 
                         (
-                            <Spinner animation="border" role="status" style={{ width: '5rem', height: '5rem'}}>
-                                <span className="visually-hidden">Loading...</span>
-                            </Spinner>
+                            <Loader/>
                         ) : (
                             <ListGroup>
                                 <ListGroup.Item><b>Producers:</b> {title.companies}</ListGroup.Item>
                                 <ListGroup.Item><b>Director:</b> {title.directors}</ListGroup.Item>
-                                <ListGroup.Item><b>Genres:</b> {title.genres == "" ? 'No genres added' : title.genres}</ListGroup.Item>
-                                <ListGroup.Item><b>IMDB Rating:</b> {title.imDbRating == "" ? 'No Rated Yet' : title.imDbRating}</ListGroup.Item>
+                                <ListGroup.Item><b>Genres:</b> {title.genres === "" ? 'No genres added' : title.genres}</ListGroup.Item>
+                                <ListGroup.Item><b>IMDB Rating:</b> {title.imDbRating === "" ? 'No Rated Yet' : title.imDbRating}</ListGroup.Item>
                             </ListGroup>
                         ) 
                     }

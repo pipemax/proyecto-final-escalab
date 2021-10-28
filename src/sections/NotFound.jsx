@@ -1,4 +1,4 @@
-import { React, Fragment } from 'react';
+import React, { Fragment } from 'react';
 import { Row, Col } from 'react-bootstrap';
 import notFoundLogo from '../assets/img/not-found.gif';
 import '../assets/css/not-found.css';

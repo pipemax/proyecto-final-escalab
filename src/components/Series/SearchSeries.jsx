@@ -1,9 +1,10 @@
 import React, { useEffect }  from 'react';
 import useGetSearchSeries from '../../custom-hooks/useGetSearchSeries';
 import ErrorComponent from '../Error';
-import { Spinner, Row, Alert } from 'react-bootstrap';
+import { Row, Alert } from 'react-bootstrap';
 import MoviesList from '../MoviesList';
 import propTypes from "prop-types";
+import Loader from '../Loader';
 
 const SearchSeries = ({query}) => {
     const { series, loadingSeries, errorSeries, getSearchSeries } = useGetSearchSeries();
@@ -15,9 +16,7 @@ const SearchSeries = ({query}) => {
     return (
         <div className='d-flex justify-content-center'>
             { loadingSeries ? (
-                <Spinner animation="border" role="status" style={{ width: '5rem', height: '5rem'}}>
-                    <span className="visually-hidden">Loading...</span>
-                </Spinner>
+                <Loader/>
             ) : errorSeries ? (
                 <ErrorComponent/>
             ) : (
