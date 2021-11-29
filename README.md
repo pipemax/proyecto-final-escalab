@@ -55,3 +55,7 @@ las opciones que ofrece el sistema. Al iniciar sesión (cuenta falsa), el usuari
 Se utilizaron custom hooks para cargar los datos de la API, los cuales se encuentran en la carpeta "custom-hooks"
 Se utilizó Redux para manejar los estados del Login y Favoritos. Investigando un poco, encontré redux-toolkit, lo cual facilitó mi entendimiento de redux y el trabajo. Dejo el link para su revisión https://redux-toolkit.js.org/
 Dependiendo del tipo de componente, podrá encontrar componentes stateful y stateless, pero en su mayoría serán stateful.
+
+## Link Proyecto
+
+https://imdb-escalab.vercel.app/
